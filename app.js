@@ -117,43 +117,33 @@ const checkLetter = (button) => {
 
 // Check if the game has been won or lost
 const checkWin = () => {
-  // Create a variable to store the li elements that have the class name "letter"
   const liElLetter = document.querySelectorAll("li.letter");
-  // Create a variable to store the li elements that have the class name "show"
   const liElShow = document.querySelectorAll("li.show");
-  const letters = document.querySelectorAll("#phrase ul li");
-  // Check if the length of the 2 variables are the same. If they are, display the win overlay.
+
   if (liElLetter.length === liElShow.length) {
-    overlay.className = "win";
-    // Change the headline text of the start overlay to show a person lost
-    title.textContent = "Congrats, you won!";
-    // Change button text to prompt to play again
-    startButton.textContent = "Play Again";
-    // Change the display property of the overlay to 'flex'
-
-    phraseUl.style.display = "none";
-
-    overlay.style.display = "flex";
+    // Add a delay before showing the win overlay
+    setTimeout(() => {
+      overlay.className = "win";
+      title.textContent = "Congrats, you won!";
+      startButton.textContent = "Play Again";
+      phraseUl.style.display = "none";
+      overlay.style.display = "flex";
+    }, 750); // 1 second delay
 
     return true;
-  }
-
-  // Check if the missed counter is greater than 4. If they are, display the lose overlay
-  else if (missed > 4) {
-    // Create the lose overlay by adding the 'lose' class to the start overlay
-    overlay.className = "lose";
-
-    // Change the headline text of the start overlay to show a person lost
-    title.textContent = "Sorry, you lost. Try again.";
-    startButton.textContent = "Play Again";
-    // Change the display property of the overlay to 'flex'
-    phraseUl.style.display = "none";
-    overlay.style.display = "flex";
+  } else if (missed > 4) {
+    // Add a delay before showing the lose overlay
+    setTimeout(() => {
+      overlay.className = "lose";
+      title.textContent = "Sorry, you lost. Try again.";
+      startButton.textContent = "Play Again";
+      phraseUl.style.display = "none";
+      overlay.style.display = "flex";
+    }, 750); // 1 second delay
 
     return false;
   }
 
-  // Continue game
   return null;
 };
 
