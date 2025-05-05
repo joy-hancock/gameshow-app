@@ -1,25 +1,30 @@
 /* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300");
 
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
+  --color-win: #78cf82;
+  --color-lose: #d94545;
   --color-start: #5b85b7;
   --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
-  --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-neutral-light: #d2d2d2;
+  --color-keys: #37474f;
+  --color-keys-light: #e5e5e5;
+  --font-family-btn: "Roboto", sans-serif;
   --font-size-large: 60px;
   --font-size-medium: 20px;
-  --transition: all .2s ease-in-out;
+  --transition: all 0.2s ease-in-out;
 }
 
 /* main */
 
 * {
   box-sizing: border-box;
+}
+
+.transition {
+  transition: var(--transition);
 }
 
 body {
@@ -29,7 +34,9 @@ body {
   height: 100vh;
 }
 
-li, ol, ul {
+li,
+ol,
+ul {
   padding: 0;
   display: inline-block;
 }
@@ -37,7 +44,7 @@ li, ol, ul {
 h2 {
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: var(--font-size-large);
   margin: 0;
 }
@@ -45,7 +52,7 @@ h2 {
 button {
   margin: 6px;
   border: 1px solid transparent;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   color: var(--color-keys);
   font-size: var(--font-size-medium);
   background-color: var(--color-keys-light);
@@ -53,6 +60,7 @@ button {
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .main-container {
@@ -86,6 +94,8 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  font-family: var(--font-family-btn);
+  transition: var(--transition);
 }
 
 .space {
@@ -94,7 +104,7 @@ button {
 
 .show {
   color: #000;
-  background-color: #76CE82;
+  background-color: #76ce82;
 }
 
 /* Keyboard */
@@ -108,15 +118,25 @@ button {
   background: var(--color-neutral);
   border-radius: 5px;
   font-size: var(--font-size-medium);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 5px;
   font-size: var(--font-size-medium);
+  cursor: pointer;
+  font-family: var(--font-family-btn);
+  transition: var(--transition);
+}
+
+.btn_reset a:focus-visible,
+.btn_reset a:focus {
+  scale: 0.9;
+  border: 1px solid red;
+  transition: var(--transition);
 }
 
 /* Overlay */
@@ -125,7 +145,7 @@ button {
   display: flex;
   flex-direction: column;
   position: fixed;
-  color: #FFFFFF;
+  color: #ffffff;
   justify-content: center;
   top: 0;
   bottom: 0;
@@ -135,11 +155,12 @@ button {
 }
 
 .title {
-  color: #FFF;
+  color: #fff;
 }
 
 .start {
   background-color: var(--color-start);
+  transition: background 0.2s ease-in;
 }
 
 .start a {
@@ -148,6 +169,7 @@ button {
 
 .win {
   background-color: var(--color-win);
+  transition: background 0.2s ease-in;
 }
 
 .win a {
@@ -156,8 +178,20 @@ button {
 
 .lose {
   background-color: var(--color-lose);
+  transition: background 0.2s ease-in;
 }
 
 .lose a {
   color: var(--color-lose);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
