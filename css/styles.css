@@ -63,6 +63,13 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  scale: 1.1;
+  box-shadow: 0px 0px 3px 0px rgba(91, 133, 183, 0.75);
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(91, 133, 183, 0.75);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(91, 133, 183, 0.75);
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -132,13 +139,6 @@ button {
   transition: var(--transition);
 }
 
-.btn_reset a:focus-visible,
-.btn_reset a:focus {
-  scale: 0.9;
-  border: 1px solid red;
-  transition: var(--transition);
-}
-
 /* Overlay */
 
 #overlay {
@@ -183,15 +183,4 @@ button {
 
 .lose a {
   color: var(--color-lose);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
 }
