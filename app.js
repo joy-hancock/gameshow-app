@@ -128,7 +128,7 @@ const checkWin = () => {
       startButton.textContent = "Play Again";
       phraseUl.style.display = "none";
       overlay.style.display = "flex";
-    }, 750); // 1 second delay
+    }, 1000);
 
     return true;
   } else if (missed > 4) {
@@ -139,7 +139,7 @@ const checkWin = () => {
       startButton.textContent = "Play Again";
       phraseUl.style.display = "none";
       overlay.style.display = "flex";
-    }, 750); // 1 second delay
+    }, 1000);
 
     return false;
   }
